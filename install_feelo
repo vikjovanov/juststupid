@@ -1,0 +1,36 @@
+#!/bin/bash
+
+rm -rf ~/Applications/.feelo_header
+
+mkdir ~/Applications/.feelo_header
+
+echo "
+#!/bin/bash
+
+c0=\"$(tput setaf 2)\"
+nc=\"$(tput sgr0)\"
+
+cat <<EOF
+${c0}  _______  _______  _______  ___      _______ 
+${c0} |       ||       ||       ||   |    |       |
+${c0} |    ___||    ___||    ___||   |    |   _   |
+${c0} |   |___ |   |___ |   |___ |   |    |  | |  |
+${c0} |    ___||    ___||    ___||   |___ |  |_|  |
+${c0} |   |    |   |___ |   |___ |       ||       |
+${c0} |___|    |_______||_______||_______||_______|
+${c0}                                                   
+${c0} user   : ${nc}${USER}@$(uname -a | awk '{print $2}' | rev | cut -c 11- | rev)
+${c0} time   : ${nc}$(date +%H:%M)
+${c0} uptime : ${nc}$(w | grep console | awk '{print $5}')
+${c0} 
+EOF
+" >> ~/Applications/.feelo_header/splashscreen
+
+chmod 777 ~/Applications/.feelo_header/splashscreen
+
+echo "
+clear
+~/Applications/.feelo_header/splashscreen
+" >> ~/.zshrc
+
+exec zsh -l
