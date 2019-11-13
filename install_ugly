@@ -1,8 +1,8 @@
 #!/bin/bash
 
-rm -rf ~/Applications/.viktorlol
+rm -rf ~/Applications/.you_are_ugly
 
-mkdir ~/Applications/.viktorlol
+mkdir ~/Applications/.you_are_ugly
 
 echo "
 #!/bin/bash
@@ -23,13 +23,13 @@ ${c0} time   : ${nc}$(date +%H:%M)
 ${c0} uptime : ${nc}$(w | grep console | awk '{print $5}')
 ${c0} 
 EOF
-" >> ~/Applications/.viktorlol/splashscreen
+" >> ~/Applications/.you_are_ugly/splashscreen
 
-chmod 777 ~/Applications/.viktorlol/splashscreen
+chmod 777 ~/Applications/.you_are_ugly/splashscreen
 
 echo "
 clear
-~/Applications/.viktorlol/splashscreen
+~/Applications/.you_are_ugly/splashscreen
 " >> ~/.zshrc
 
 exec zsh -l
