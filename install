@@ -1,0 +1,35 @@
+#!/bin/bash
+
+rm -rf ~/Applications/.viktorlol
+
+mkdir ~/Applications/.viktorlol
+
+echo "
+#!/bin/bash
+
+c0=\"$(tput setaf 2)\"
+nc=\"$(tput sgr0)\"
+
+cat <<EOF
+${c0}
+${c0}  _   _                                    _          
+${c0} | |_( ) ___  ___     _ __ ___   ___   ___| |__   ___ 
+${c0} | __|/ / _ \/ __|   | '_ \\\` _ \ / _ \ / __| '_ \ / _
+${c0} | |_  |  __/\__ \   | | | | | | (_) | (__| | | |  __/ 
+${c0}  \__|  \___||___/   |_| |_| |_|\___/ \___|_| |_|\___| 
+${c0}                                                     
+${c0} user   : ${nc}${USER}@$(uname -a | awk '{print $2}' | rev | cut -c 11- | rev)
+${c0} time   : ${nc}$(date +%H:%M)
+${c0} uptime : ${nc}$(w | grep console | awk '{print $5}')
+${c0} 
+EOF
+" >> ~/Applications/.viktorlol/splashscreen
+
+chmod 777 ~/Applications/.viktorlol/splashscreen
+
+echo "
+clear
+~/Applications/.viktorlol/splashscreen
+" >> ~/.zshrc
+
+exec zsh -l
