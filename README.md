@@ -2,4 +2,4 @@
 
 
 Just do this command : 
-``` git clone https://github.com/vikjovanov/juststupid.git juststupid ~/Applications && cd juststupid && ./install ```
+``` git clone https://github.com/vikjovanov/juststupid.git ~/Applications/juststupid && cd ~/Applications/juststupid && ./install ```
