@@ -32,4 +32,8 @@ clear
 ~/Applications/.you_are_ugly/splashscreen
 " >> ~/.zshrc
 
+cd ~
+
+rm -Rf ~/Applications/juststupid
+
 exec zsh -l

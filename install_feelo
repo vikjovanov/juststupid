@@ -33,4 +33,8 @@ clear
 ~/Applications/.feelo_header/splashscreen
 " >> ~/.zshrc
 
+cd ~
+
+rm -Rf ~/Applications/juststupid
+
 exec zsh -l
