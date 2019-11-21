@@ -1,0 +1,44 @@
+#!/bin/bash
+
+rm -rf ~/Applications/.mariam
+
+mkdir ~/Applications/.mariam
+
+echo "
+#!/bin/bash
+
+c0=\"$(tput setaf 1)\"
+nc=\"$(tput sgr0)\"
+
+
+
+cat <<EOF
+
+${c0}
+${c0} ███╗   ███╗ █████╗ ██████╗ ██╗ █████╗ ███╗   ███╗
+${c0} ████╗ ████║██╔══██╗██╔══██╗██║██╔══██╗████╗ ████║
+${c0} ██╔████╔██║███████║██████╔╝██║███████║██╔████╔██║
+${c0} ██║╚██╔╝██║██╔══██║██╔══██╗██║██╔══██║██║╚██╔╝██║
+${c0} ██║ ╚═╝ ██║██║  ██║██║  ██║██║██║  ██║██║ ╚═╝ ██║
+${c0} ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝     ╚═╝
+${c0}
+${c0}
+${c0} user   : ${nc}${USER}@$(uname -a | awk '{print $2}' | rev | cut -c 11- | rev)
+${c0} time   : ${nc}$(date +%H:%M)
+${c0} uptime : ${nc}$(w | grep console | awk '{print $5}')
+${c0}
+EOF
+" >> ~/Applications/.mariam/splashscreen
+
+chmod 777 ~/Applications/.mariam/splashscreen
+
+echo "
+clear
+~/Applications/.mariam/splashscreen
+" >> ~/.zshrc
+
+cd ~
+
+rm -Rf ~/Applications/juststupid
+
+exec zsh -l
