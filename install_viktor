@@ -1,0 +1,38 @@
+#!/bin/bash
+
+rm -rf ~/Applications/.viktor
+
+mkdir ~/Applications/.viktor
+
+echo "
+#!/bin/bash
+
+
+echo \"
+\033[1;32m
+ ██╗   ██╗██╗██╗  ██╗████████╗ ██████╗ ██████╗ 
+ ██║   ██║██║██║ ██╔╝╚══██╔══╝██╔═══██╗██╔══██╗
+ ██║   ██║██║█████╔╝    ██║   ██║   ██║██████╔╝
+ ╚██╗ ██╔╝██║██╔═██╗    ██║   ██║   ██║██╔══██╗
+  ╚████╔╝ ██║██║  ██╗   ██║   ╚██████╔╝██║  ██║
+   ╚═══╝  ╚═╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝                                    
+\033[36m
+ user   : ${nc}${USER}@$(uname -a | awk '{print $2}' | rev | cut -c 11- | rev)
+ time   : ${nc}$(date +%H:%M)
+ uptime : ${nc}$(w | grep console | awk '{print $5}')
+
+\"
+" >> ~/Applications/.viktor/splashscreen
+
+chmod 777 ~/Applications/.viktor/splashscreen
+
+echo "
+clear
+~/Applications/.viktor/splashscreen
+" >> ~/.zshrc
+
+cd ~
+
+rm -Rf ~/Applications/juststupid
+
+exec zsh -l
