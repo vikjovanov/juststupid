@@ -11,3 +11,8 @@ Just do this command :
 ## FEELO
 
 ``` git clone https://github.com/vikjovanov/juststupid.git ~/Applications/juststupid && cd ~/Applications/juststupid && ./install_feelo ```
+
+
+## MARIAM
+
+``` git clone https://github.com/vikjovanov/juststupid.git ~/Applications/juststupid && cd ~/Applications/juststupid && ./install_mariam ```
